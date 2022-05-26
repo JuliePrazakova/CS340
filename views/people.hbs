@@ -1,0 +1,46 @@
+
+<div class="landingPage">
+    <div class="ui vertical huge menu">
+        <div class="item">
+            <div class="header">People</div>
+            <div class="menu">
+                <div class="ui category search">
+                    <div class="ui icon input">
+                        <input class="prompt" type="text" placeholder="Search people...">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<table class="ui celled table welcome">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date of birth</th>
+        <th>Gender</th>
+        <th>Job</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#people}}
+        <tr>
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{birth_day}}</td>
+            <td>{{gender}}</td>
+            <td>{{job}}</td>
+            <td>{{address}}</td>
+            <td><i class="big address card icon"></i></td>
+            <td><i class="big pencil alternate icon"></i></td>
+            <td><i class="big eraser icon"></i></td>
+        </tr>
+    {{/people}}
+    </tbody>
+</table>
