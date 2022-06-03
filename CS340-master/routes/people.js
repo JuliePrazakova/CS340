@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../db/index');
+const pool = require('../db/index').pool;
 
 //set up the router
-router.get('/', function(req, res) {
+router.get('/', function(req, res,next) {
     var context = {};
-    pool.query("SELECT * FROM people", function(err, result){
+    pool.query("SELECT * FROM person", function(err, result){
         if(err){
             next(err);
             return;
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 
 router.get('/view:id',function(req,res,next){
     var context = {};
-    pool.query("SELECT * FROM people WHERE id = ?;", [req.params.id], function(err, result){
+    pool.query("SELECT * FROM person WHERE id = ?;", [req.params.id], function(err, result){
         if(err){
             next(err);
             return;

@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
     host  : 'classmysql.engr.oregonstate.edu',
-    user  : 'cs340_wolfordj',
+    user  : 'cs340_seabramg',
     password: '7316',
     database: 'cs340_seabramg'
 });

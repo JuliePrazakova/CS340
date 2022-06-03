@@ -25,13 +25,14 @@ const pool = require('./db/index.js');
 const indexRouter =  require('./routes/index');
 const peopleRouter =  require('./routes/people');
 const eventsRouter =  require('./routes/events');
+
 const { prototype } = require("events");
 
 //handlebars setup
 app.set('view engine', 'hbs');
 app.engine('hbs', hbs({
   extname: "hbs",
-  //defaultLayout: 'index',
+  defaultLayout: 'index',
   partialsDir: __dirname + '/views/partials/',
   layoutsDir: __dirname + '/views/layouts/'
 }));
