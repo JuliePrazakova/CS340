@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 
 const hbs = require('express-handlebars');
+
+//do not add,it breaks code
 /*.create({
   extname: "hbs",
   defaultLayout: 'index',
@@ -25,8 +27,9 @@ const pool = require('./db/index.js');
 const indexRouter =  require('./routes/index');
 const peopleRouter =  require('./routes/people');
 const eventsRouter =  require('./routes/events');
-
+const groupRouter = require('./routes/groups')
 const { prototype } = require("events");
+
 
 //handlebars setup
 app.set('view engine', 'hbs');
@@ -55,6 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/people', peopleRouter);
 app.use('/events', eventsRouter);
+app.use('/groups', groupRouter);
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
