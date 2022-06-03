@@ -1,0 +1,44 @@
+
+<div class="landingPage">
+    <div class="ui vertical huge menu">
+        <div class="item">
+            <div class="header">My Group</div>
+            <div class="menu">
+                <a class="item" href="events.hbs">People from my group</a>
+                <div class="ui category search">
+                    <div class="ui icon input">
+                        <input class="prompt" type="text" placeholder="Search groups...">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="ui celled table welcome">
+    <thead>
+    <tr>
+        <th>Group name</th>
+        <th>People</th>
+        <th>Description</th>
+        <th>Manager</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#groups}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{people}}</td>
+            <td>{{description}}</td>
+            <td>{{manager}}</td>
+            <td><i class="big address card icon"></i></td>
+            <td><i class="big pencil alternate icon"></i></td>
+            <td><i class="big eraser icon"></i></td>
+        </tr>
+    {{/groups}}
+    </tbody>
+</table>
