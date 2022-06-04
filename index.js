@@ -15,6 +15,7 @@ const pool = require('/db/index');
 const indexRouter =  require('./routes/index');
 const peopleRouter =  require('./routes/people');
 const eventsRouter =  require('./routes/events');
+const groupsRouter =  require('./routes/groups');
 
 //handlebars setup
 app.set('view engine', 'hbs');
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/people', peopleRouter);
 app.use('/events', eventsRouter);
+app.use('/groups', groupsRouter);
 
 app.get('/insert',function(req,res,next){
   var context = {};

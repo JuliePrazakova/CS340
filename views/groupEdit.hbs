@@ -1,0 +1,18 @@
+<div class="ui raised segment box">
+    <form method="POST" class="ui form">
+        <table class="ui celled structured table">
+            <thead><tr><div class="table-label">EDIT GROUP</div></tr>
+            </thead>
+            <tbody>
+            {{#group}}
+                <tr><td></td><td><strong>original</strong></td><td><strong>edited</strong></td></tr>
+                <tr><td><strong>Name</strong> </td><td>{{name}}</td><td><input type="text" name="name" id="name" placeholder="Name"></td></tr>
+                <tr><td><strong>People</strong> </td><td>{{people}}</td><</tr>
+                <tr><td><strong>Description</strong> </td><td>{{description}}</td><td><input type="text" name="description" id="description" placeholder="Descritpion"></td></tr>
+                <tr><td><strong>Manager</strong></td><td>{{manager}}</td><td>  <input type="text" name="manager" id="manager" placeholder="Manager"></td></tr>
+             {{/group}}
+            </tbody>
+        </table>
+        <input type="submit" value="Save" class="ui button">
+    </form>
+</div>

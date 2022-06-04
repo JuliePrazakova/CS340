@@ -22,7 +22,7 @@ const hbs = require('express-handlebars');
 const pool = require('./db/index.js');
 
 //routers
-const indexRouter =  require('./routes/index');
+const indexRouter =  require('./CS340-master/');
 const peopleRouter =  require('./routes/people');
 const eventsRouter =  require('./routes/events');
 
