@@ -1,0 +1,29 @@
+<div class="ui raised segment box">
+    <form method="POST" class="ui form">
+        <table class="ui celled structured table">
+            <thead><tr><div class="table-label">ADD PERSON</div></tr>
+            </thead>
+            <tbody>
+            {{#person}}
+                <tr><td><strong>First name</strong> </td><input type="text" name="firstname" id="first_name" placeholder="First name" ></td></tr>
+                <tr><td><strong>Last name</strong></td><td><input type="text" name="lastname" id="last_name" placeholder="Last name" ></td></tr>
+                <tr><td><strong>Date of birth</strong></td><td><input type="datetime-local" name="birthDay"  value="1990-06-12T19:30" ></td></tr>
+                <tr><td><strong>Job</strong></td><td><input type="text" name="job" id="job" placeholder="job" ></td></tr>
+                <tr><td><strong>Gender</strong></td><td>
+                    <select name="gender">
+                        <option selected disabled>Gender</option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                        <option value="2">Different</option>
+                    </select>
+                </td></tr>
+                <tr><td><strong>City</strong></td><td><input type="text" name="city" id="city" placeholder="City"></td></tr>
+                <tr><td><strong>Street</strong></td><td><input type="text" name="street_name" id="street_name" placeholder="Street name"></td></tr>
+                <tr><td><strong>Street numberu</strong></td><td><input type="number" name="street_number" id="street_number" placeholder="Street number"></td></tr>
+                <tr><td><strong>Zip</strong></td><td><input type="number" name="zip" id="zip" placeholder="Zip"></td></tr>
+            {{/person}}
+            </tbody>
+        </table>
+        <input type="submit" value="Save" class="ui button">
+    </form>
+</div>

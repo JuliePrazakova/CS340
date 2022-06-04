@@ -43,5 +43,20 @@ router.get('/view:id',function(req,res,next){
     });
 });
 
+router.get('/add',async function (req, res, next) {
+    pool.query(`INSERT INTO work_group (name, description, manager)VALUES ($1, $2, $3)`, [req.body.name, req.body.description, req.body.manager]);
+
+    const groups = pool.query("SELECT * FROM work_group");
+    res.render('groups', {
+        groups: groups.rows
+    });
+});
+
+router.post('/delete/id', async (req, res, next) => {
+    pool.query(`DELETE FROM work_group WHERE id_group = $1`, [req.params.id], async(err, results) => {
+        if (err) throw err;
+        res.redirect('/');
+    });
+})
 
 module.exports = router;

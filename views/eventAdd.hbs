@@ -1,0 +1,23 @@
+<div class="ui raised segment box">
+    <form method="POST" class="ui form">
+        <table class="ui celled structured table">
+            <thead><tr><div class="table-label">EDIT EVENT</div></tr>
+            </thead>
+            <tbody>
+            {{#event}}
+                <tr><td><strong>Name</strong> </td><td><input type="text" name="desc" id="name" placeholder="Name"></td></tr>
+                <tr><td><strong>Date</strong> </td><td><input type="date" name="date" id="date" placeholder="Date"></td></tr>
+                <tr><td><strong>Description</strong> </td><td><input type="text" name="description" id="description" placeholder="Descritpion"></td></tr>
+                <tr><td><strong>Duration</strong></td><td>  <input type="time" name="duration" id="duration" value="02:30"></td></tr>
+
+                <tr><td><strong>City</strong></td><td><input type="text" name="city" id="city" placeholder="City"></td></tr>
+                <tr><td><strong>Street name</strong></td><td><input type="text" name="street_name" id="street_name" placeholder="Street name"></td></tr>
+                <tr><td><strong>Street number</strong></td>]<td><input type="number" name="street_number" id="street_number" placeholder="Street number"></td></tr>
+                <tr><td><strong>Zip</strong></td><td><input type="text" name="zip" id="zip" placeholder="Zip"></td></tr>
+            {{/event}}
+
+            </tbody>
+        </table>
+        <input type="submit" value="Save" class="ui button">
+    </form>
+</div>
