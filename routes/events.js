@@ -30,4 +30,21 @@ router.get('/view:id',async function (req, res, next) {
     });
 });
 
+router.get('/add',async function (req, res, next) {
+    const id_location = await pool.query(`SELECT id_location from location WHERE city = $1 AND street = $2 AND street_number = $3`, [req.body.city, req.body.street_name, req.body.street_number])
+    pool.query(`INSERT INTO event (date, description, duration, name, id_location)VALUES ($1, $2, $3, $4, $5)`, [req.body.date, req.body.description, req.body.duration, req.body.name, id_location]);
+
+    const events = pool.query("SELECT * FROM events");
+    res.render('events', {
+        events: events.rows
+    });
+});
+
+router.post('/delete/id', async (req, res, next) => {
+    pool.query(`DELETE FROM events WHERE id_event = $1`, [req.params.id], async(err, results) => {
+        if (err) throw err;
+        res.redirect('/');
+    });
+})
+
 module.exports = router;

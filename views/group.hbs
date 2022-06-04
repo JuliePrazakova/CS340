@@ -35,9 +35,9 @@
             <td>{{people}}</td>
             <td>{{description}}</td>
             <td>{{manager}}</td>
-            <td><i class="big address card icon"></i></td>
-            <td><i class="big pencil alternate icon"></i></td>
-            <td><i class="big eraser icon"></i></td>
+            <td><a href="/view:{{id}}"><i class="big address card icon" ></i></a></td>
+            <td><a href="/edit:{{id}}"><i class="big pencil alternate icon"></i></a></td>
+            <td><a href="/delete:{{id}}"><i class="big eraser icon"></i></a></td>
         </tr>
     {{/groups}}
     </tbody>
