@@ -11,7 +11,7 @@ router.get('/', function(req, res,next) {
             return;
         }
         context.results = "Inserted id " + result.insertId;
-        res.render('people',context);
+        res.render('people', {layout: "index"},context);
     });
 });
 

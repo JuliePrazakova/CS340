@@ -4,38 +4,30 @@ const pool = require('/db/index');
 
 //set up the router
 router.get('/', async (req, res) => {
-    var context = {};
-    pool.query("SELECT * FROM people", function(err, result){
-        if(err){
-            next(err);
-            return;
-        }
-        context.results = "Inserted id " + result.insertId;
-        res.render('people',context);
+    const people = pool.query("SELECT * FROM people");
+        res.render('people',{
+            people: people.rows
     });
 });
 
-router.get('/view:id',function(req,res,next){
-    var context = {};
-    pool.query("SELECT * FROM people WHERE id = ?;", [req.params.id], function(err, result){
-        if(err){
-            next(err);
-            return;
-        }
-        context.results = "Inserted id " + result.insertId;
-        res.render('people', context);
+router.get('/view:id',async function (req, res, next) {
+    const person = await pool.query(`SELECT * FROM people WHERE id_person = $1`, [req.params.id]);
+            res.render('people', {
+                people: person.rows
+            });
+});
+
+router.post('/edit:id',async function (req, res, next) {
+    const person = await pool.query(`UPDATE person SET first_name = $1, last_name = $2, birth_day = $3, gender = $4, job = $5 WHERE id = $6`, [req.body.firstname, req.body.lastname, req.body.birthDay, req.body.job, req.body.gender, req.params.id]);
+    res.render('personView', {
+        person: person.rows
     });
 });
 
-router.get('/edit:id',function(req,res,next){
-    var context = {};
-    pool.query("UPDATE person SET first_name = first_name, last_name = :last_name, birth_day = :birth_day, gender = :gender, job = :job WHERE id = ?;", [req.query.c, req.params.id], function(err, result){
-        if(err){
-            next(err);
-            return;
-        }
-        context.results = "Inserted id " + result.insertId;
-        res.render('people',context);
+router.get('/edit:id',async function (req, res, next) {
+    const person = await pool.query(`SELECT * FROM people WHERE id_person = $1`, [req.params.id]);
+    res.render('personEdit', {
+        person: person.rows
     });
 });
 module.exports = router;
